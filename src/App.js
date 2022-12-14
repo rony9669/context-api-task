@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useContext } from "react";
+import { buttonContext } from "./contexts/buttonContext";
 
 function App() {
+  const { active, handleClick } = useContext(buttonContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App mt-5">
+      <p className="cursor" onClick={handleClick}>
+        Click Here
+      </p>
+
+      <button className={active ? "red-btn" : "green-btn"}>Sign Up</button>
     </div>
   );
 }
